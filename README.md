@@ -12,6 +12,7 @@
 ### 우분투 설치 과정
 - 설치 언어는 영어 권장
 - APT 패키지 미러 사이트는 `http://kr.archive.ubuntu.com`에서 `http://mirror.kakao.com`으로 바꿔준다 (앞 미러는 가끔 헤까닥 하는 경우가 있어서)
+  - 바꾸는 방법 [[링크](https://teddylee777.github.io/linux/ubuntu%EC%97%90%EC%84%9C-apt-get%EC%98%A4%EB%A5%98%EC%8B%9C-mirror%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%EB%B0%A9%EB%B2%95/)]
 - 네트워크 장치들(eth0, enp0s0 같은거) 나오는 화면에서 랜선이 꽂혀있는 장치(안 꽂혀있는건 Not connected라고 나온다)를 선택하고 Automatic(DHCP)에서 Manual로 바꾼 후 IP 설정을 해준다
 
 ## 우분투 초기 설정
