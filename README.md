@@ -64,6 +64,23 @@ sudo apt install nvidia-driver-470-server
 ```
 설치 후 **반드시 재부팅**한다. 그런 다음 `nvidia-smi`를 입력해보면 드라이버가 온전히 설치된 것이 확인될 것이다.
 
+그 다음 cuDNN을 설치해야 한다.  
+아래 링크로 들어가서 본인의 운영체제와 시스템에 맞는 옵션을 선택하면, `Installation Instructions:`로 시작하는 가이드가 나온다.   
+그걸 따라 설치하면 된다.
+https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu
+
+예시
+```
+wget https://developer.download.nvidia.com/compute/cudnn/9.1.1/local_installers/cudnn-local-repo-ubuntu2004-9.1.1_1.0-1_amd64.deb
+sudo dpkg -i cudnn-local-repo-ubuntu2004-9.1.1_1.0-1_amd64.deb
+sudo cp /var/cudnn-local-repo-ubuntu2004-9.1.1/cudnn-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cudnn
+```
+
+아래 방법은 cuDNN 9부터는 해당되지 않는 내용이지만, 일단 남겨는 놓습니다.
+### 예전 방법
+
 **이 시점에서 https://developer.nvidia.com 에 접속해서 NVIDIA 계정을 만든다. 계정이 있어야 cuDNN 다운로드가 가능함**
 
 CUDA Toolkit은 자신의 드라이버가 지원하면서 cuDNN도 지원이 되면서 최신인 버전을 골라야한다는 번거로움이 있다. 다만 기본적으로 `드라이버가 구형 + Toolkit&cuDNN이 신형`인 조합은 문제없이 동작한다는 점에 착안하여,  
@@ -75,7 +92,7 @@ cuDNN도 받은 다음에 `sudo dpkg -i cudnn어쩌구` 같은 식으로 설치�
 
 그런 다음 컴퓨터를 재부팅한다.
 
-## NVCC 업데이트
+#### NVCC 업데이트
 아래 명령어를 터미널에서 입력하여 /etc/bash.bashrc 상의 환경변수에 새로 설치한 CUDA의 경로를 추가한다.
 이때 `쿠다버전`은 `/usr/local`에 있는 `cuda-11.4` 와 비슷한 이름의 쿠다 폴더가 있으니 그 숫자를 똑같이 적으면 된다.
 ```Shell
